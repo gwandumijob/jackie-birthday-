@@ -1,31 +1,74 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sw">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday Jackie!</title>
+    <title>Happy Birthday Jackie - Special Edition</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts kwa ajili ya muandiko safi -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!-- LOGIN CONTAINER -->
-    <div id="login-container" class="card">
-        <h2>Ingia ili Uone Zawadi Yako 🎁</h2>
-        <p>Weka jina lako na mwaka wako wa kuzaliwa:</p>
-        <input type="text" id="username" placeholder="Weka Jina (Mfano: Jackie)">
-        <input type="password" id="birthyear" placeholder="Mwaka wa Kuzaliwa (Mfano: 2004)">
-        <button onclick="checkLogin()">Fungua Zawadi</button>
-        <p id="error-msg" class="error"></p>
+    <!-- Sehemu ya Nyuma (Background Wrapper) -->
+    <div class="bg-overlay"></div>
+
+    <div class="container">
+        <!-- Ukurasa wa Kwanza: Login ya Kioo (Glassmorphism) -->
+        <div id="login-section" class="glass-box">
+            <h1 class="main-title">Ingia ili Uone Zawadi Yako 🎁</h1>
+            <p class="sub-text">Weka jina lako na tarehe yako ya kuzaliwa ili mfumo ukutambue:</p>
+            
+            <div class="input-group">
+                <input type="text" id="username" placeholder="Weka Jina (Mfano: Jackie)" required>
+            </div>
+            
+            <div class="input-group">
+                <input type="date" id="birthdate" required>
+            </div>
+            
+            <button id="login-btn" class="glass-button">Fungua Zawadi</button>
+        </div>
+
+        <!-- Ukurasa wa Pili: Zawadi na Dashibodi ya Kibabe -->
+        <div id="content-section" class="hidden">
+            <div class="glass-box message-box">
+                <h1 id="greeting-title" class="wish-title">🎉 Happy Birthday! 🎉</h1>
+                <p id="greeting-message" class="wish-text">
+                    "Katika siku hii ya kipekee duniani, ninakuombea furaha isiyo na kiasi, mafanikio tele, na amani ya moyo wako. Wewe ni mtu wa pekee sana na mwenye thamani kubwa!" 💖✨
+                </p>
+                <div class="fireworks-indicator">✨ Fataki zinawaka kwa ajili yako! ✨</div>
+            </div>
+
+            <!-- Music Player Box yenye muonekano wa Selah kwenye picha -->
+            <div class="glass-box music-player">
+                <div class="album-art">
+                    <span class="album-icon">🎵</span>
+                </div>
+                <div class="track-info">
+                    <span class="track-title">SELAH</span>
+                    <span class="track-artist">Forrest Frank</span>
+                </div>
+                <div class="player-controls">
+                    <button class="ctrl-btn">⏮</button>
+                    <button id="play-pause-btn" class="ctrl-btn main-ctrl">⏸</button>
+                    <button class="ctrl-btn">⏭</button>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <!-- SURPRISE CONTAINER (MWANZO IMEFICWA) -->
-    <div id="surprise-container" class="hidden">
-        <h1>🎉 Happy Birthday Jackie! 🎉</h1>
-        <p class="wish-text">
-            "Katika siku hii ya kipekee duniani, ninakuombea furaha isiyo na kiasi, mafanikio tele, na amani ya moyo wako. Wewe ni mtu wa pekee sana na mwenye thamani kubwa. Nakutakia maisha marefu yenye baraka tele. Enjoy siku yako kikamilifu!" 💖✨
-        </p>
-        <div class="flowers">🌸 🌺 🌷 🌻 🌹 🌸 🌺 🌷</div>
-        <div class="fireworks-msg">✨ Fataki zinawaka kwa ajili yako! ✨</div>
+    <!-- Vitufe vya Chini vya Muonekano wa Simu (Tochi na Kamera) -->
+    <div class="bottom-dock">
+        <div class="dock-btn glass-circle" id="torch-btn" title="Tochi">
+            🔦
+        </div>
+        <div class="dock-text">
+            <span>morninnnn'</span>
+        </div>
+        <div class="dock-btn glass-circle" id="camera-btn" title="Kamera">
+            📷
+        </div>
     </div>
 
     <script src="script.js"></script>

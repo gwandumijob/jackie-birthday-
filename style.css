@@ -1,95 +1,235 @@
-body {
+* {
     margin: 0;
     padding: 0;
-    background: linear-gradient(135deg, #ff758c, #ff7eb3);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: url('https://images.unsplash.com/photo-1514565131-fce0801e5785?q=80&w=1000&auto=format&fit=crop') no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    position: relative;
     overflow: hidden;
     color: #fff;
-    text-align: center;
 }
 
-.card {
-    background: rgba(255, 255, 255, 0.15);
-    padding: 30px;
-    border-radius: 15px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-    width: 320px;
+/* Kivuli cheusi kidogo nyuma ili kila kitu kisomeke vizuri */
+.bg-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
 }
 
-input {
+.container {
+    position: relative;
+    z-index: 2;
     width: 90%;
-    padding: 12px;
-    margin: 10px 0;
-    border: none;
-    border-radius: 8px;
+    max-width: 420px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Muonekano wa Kioo (Glassmorphism Box) */
+.glass-box {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 24px;
+    padding: 30px 20px;
+    width: 100%;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+/* Vichwa vya habari na maandishi ya kawaida (Typography safi) */
+.main-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #ffb6c1; /* Rangi ya pinki nyepesi kwa ajili ya kichwa cha habari */
+    margin-bottom: 10px;
+}
+
+.sub-text {
+    font-size: 13px;
+    color: #f0f0f0; /* Rangi ya kijivu safi kwa ajili ya sentensi za kawaida */
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+.input-group {
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 14px;
+    color: #fff;
+    font-size: 14px;
     outline: none;
     text-align: center;
-    font-size: 16px;
 }
 
-button {
-    background-color: #ff2e63;
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 8px;
-    font-size: 16px;
-    cursor: pointer;
-    font-weight: bold;
+.input-group input::placeholder {
+    color: #ddd;
+}
+
+/* Vitufe vya Kioo vya Kuvutia */
+.glass-button {
     width: 100%;
-    margin-top: 10px;
-    transition: 0.3s;
+    padding: 12px;
+    background: rgba(255, 182, 193, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 14px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: background 0.2s;
 }
 
-button:hover {
-    background-color: #d61a48;
-}
-
-.error {
-    color: #ffe6e6;
-    font-size: 14px;
-    margin-top: 10px;
-    font-weight: bold;
+.glass-button:hover {
+    background: rgba(255, 182, 193, 0.6);
 }
 
 .hidden {
     display: none;
 }
 
-#surprise-container h1 {
-    font-size: 2.5rem;
-    color: #fff;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    animation: bounce 1.5s infinite;
+/* Sehemu ya Ujumbe */
+.message-box {
+    margin-bottom: 20px;
+}
+
+.wish-title {
+    font-size: 20px;
+    color: #ffb6c1;
+    margin-bottom: 10px;
 }
 
 .wish-text {
-    font-size: 1.2rem;
-    max-width: 500px;
-    margin: 20px auto;
-    line-height: 1.6;
-    background: rgba(0, 0, 0, 0.2);
-    padding: 20px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #f9f9f9;
+    margin-bottom: 10px;
+}
+
+.fireworks-indicator {
+    font-size: 12px;
+    color: #ffd700;
+    font-weight: 600;
+}
+
+/* Music Player Style (Muonekano wa Kioo kama wa Selah kwenye picha) */
+.music-player {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px;
+}
+
+.album-art {
+    width: 45px;
+    height: 45px;
+    background: #ffb6c1;
     border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
 }
 
-.flowers {
-    font-size: 2rem;
-    margin-top: 15px;
-    animation: pulse 1s infinite alternate;
+.track-info {
+    text-align: left;
+    flex-grow: 1;
+    margin-left: 15px;
 }
 
-@keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+.track-title {
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
 }
 
-@keyframes pulse {
-    0% { transform: scale(1); }
-    100% { transform: scale(1.1); }
+.track-artist {
+    font-size: 12px;
+    color: #ddd;
+}
+
+.player-controls {
+    display: flex;
+    gap: 8px;
+}
+
+.ctrl-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: #fff;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+}
+
+/* Vitufe vya Chini (Dock ya Simu na Vioo vya Duara) */
+.bottom-dock {
+    position: absolute;
+    bottom: 25px;
+    width: 85%;
+    max-width: 380px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 3;
+}
+
+.glass-circle {
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: transform 0.2s;
+}
+
+.glass-circle:active {
+    transform: scale(0.92);
+}
+
+.dock-text span {
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.85);
+    background: rgba(0, 0, 0, 0.2);
+    padding: 6px 14px;
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
 }
