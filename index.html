@@ -3,72 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday Jackie - Special Edition</title>
+    <title>Happy Birthday Jackie - Pro Edition</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Google Fonts kwa ajili ya muandiko safi -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!-- Sehemu ya Nyuma (Background Wrapper) -->
     <div class="bg-overlay"></div>
 
     <div class="container">
-        <!-- Ukurasa wa Kwanza: Login ya Kioo (Glassmorphism) -->
-        <div id="login-section" class="glass-box">
-            <h1 class="main-title">Ingia ili Uone Zawadi Yako 🎁</h1>
-            <p class="sub-text">Weka jina lako na tarehe yako ya kuzaliwa ili mfumo ukutambue:</p>
+        <!-- Ukurasa wa Login wenye Muonekano wa Kioo -->
+        <div id="login-section" class="glass-card">
+            <h1 class="title-main" id="txt-welcome">Ingia kwenye Mfumo 🎁</h1>
+            <p class="text-sub" id="txt-sub">Weka taarifa zako ili ufungue zawadi maalum:</p>
             
-            <div class="input-group">
-                <input type="text" id="username" placeholder="Weka Jina (Mfano: Jackie)" required>
+            <div class="input-wrap">
+                <input type="text" id="username" placeholder="Weka Jina lako" required>
             </div>
             
-            <div class="input-group">
+            <div class="input-wrap">
                 <input type="date" id="birthdate" required>
             </div>
             
-            <button id="login-btn" class="glass-button">Fungua Zawadi</button>
+            <button id="login-btn" class="glass-btn">Fungua Zawadi</button>
         </div>
 
-        <!-- Ukurasa wa Pili: Zawadi na Dashibodi ya Kibabe -->
+        <!-- Ukurasa wa Pili: Dashboard / Zawadi -->
         <div id="content-section" class="hidden">
-            <div class="glass-box message-box">
-                <h1 id="greeting-title" class="wish-title">🎉 Happy Birthday! 🎉</h1>
-                <p id="greeting-message" class="wish-text">
-                    "Katika siku hii ya kipekee duniani, ninakuombea furaha isiyo na kiasi, mafanikio tele, na amani ya moyo wako. Wewe ni mtu wa pekee sana na mwenye thamani kubwa!" 💖✨
+            <div class="glass-card message-box">
+                <h1 id="greeting-title" class="title-main">🎉 Happy Birthday! 🎉</h1>
+                <p id="greeting-message" class="text-sub">
+                    "Leo ndiyo siku yako kuu! Mfumo umesoma taarifa zako na kukuandalia ujumbe huu maalum wa kukufanya ufurahi." 💖✨
                 </p>
-                <div class="fireworks-indicator">✨ Fataki zinawaka kwa ajili yako! ✨</div>
+                <button id="settings-toggle-btn" class="glass-btn small-btn">⚙️ Settings & Lugha</button>
             </div>
 
-            <!-- Music Player Box yenye muonekano wa Selah kwenye picha -->
-            <div class="glass-box music-player">
-                <div class="album-art">
-                    <span class="album-icon">🎵</span>
-                </div>
+            <!-- Sanduku la Nyimbo lenye Kioo (Kama la Selah) -->
+            <div class="glass-card music-player">
+                <div class="album-art">🎵</div>
                 <div class="track-info">
                     <span class="track-title">SELAH</span>
                     <span class="track-artist">Forrest Frank</span>
                 </div>
                 <div class="player-controls">
-                    <button class="ctrl-btn">⏮</button>
-                    <button id="play-pause-btn" class="ctrl-btn main-ctrl">⏸</button>
-                    <button class="ctrl-btn">⏭</button>
+                    <button class="ctrl-glass">⏮</button>
+                    <button class="ctrl-glass main-ctrl">⏸</button>
+                    <button class="ctrl-glass">⏭</button>
                 </div>
             </div>
         </div>
+
+        <!-- Modali ya Settings (Muonekano wa Kioo) -->
+        <div id="settings-modal" class="glass-card modal hidden">
+            <h2 class="title-main">⚙️ Mipangilio (Settings)</h2>
+            <p class="text-sub">Badilisha lugha au taarifa zako hapa:</p>
+            
+            <div class="input-wrap">
+                <label>Chagua Lugha / Language:</label>
+                <select id="lang-select" class="glass-select">
+                    <option value="sw">Kiswahili</option>
+                    <option value="en">English</option>
+                </select>
+            </div>
+
+            <div class="input-wrap">
+                <input type="text" id="edit-username" placeholder="Badilisha Jina">
+            </div>
+
+            <button id="save-settings-btn" class="glass-btn">Hifadhi Mabadiliko</button>
+            <button id="close-settings-btn" class="glass-btn close-btn">Funga</button>
+        </div>
     </div>
 
-    <!-- Vitufe vya Chini vya Muonekano wa Simu (Tochi na Kamera) -->
+    <!-- Vitufe vya Chini vya Muonekano wa Kioo (Tochi, Asubuhi, Kamera) -->
     <div class="bottom-dock">
-        <div class="dock-btn glass-circle" id="torch-btn" title="Tochi">
-            🔦
-        </div>
-        <div class="dock-text">
+        <div class="dock-glass-btn" id="torch-btn" title="Tochi">🔦</div>
+        <div class="dock-text-glass">
             <span>morninnnn'</span>
         </div>
-        <div class="dock-btn glass-circle" id="camera-btn" title="Kamera">
-            📷
-        </div>
+        <div class="dock-glass-btn" id="camera-btn" title="Kamera">📷</div>
     </div>
 
     <script src="script.js"></script>

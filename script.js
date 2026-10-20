@@ -1,17 +1,36 @@
+// Data za lugha (Translations)
+const translations = {
+    sw: {
+        welcome: "Ingia kwenye Mfumo 🎁",
+        sub: "Weka taarifa zako ili ufungue zawadi maalum:",
+        namePlaceholder: "Weka Jina lako",
+        btnOpen: "Fungua Zawadi",
+        bdayWish: "Leo ndiyo siku yako kuu! Mfumo umesoma taarifa zako na kukuandalia ujumbe huu maalum wa kukufanya ufurahi. 💖✨",
+        settingsBtn: "⚙️ Settings & Lugha"
+    },
+    en: {
+        welcome: "Enter the System 🎁",
+        sub: "Enter your details to unlock your special gift:",
+        namePlaceholder: "Enter your Name",
+        btnOpen: "Open Gift",
+        bdayWish: "Today is your special day! The system has verified your info and prepared this exclusive message just for you. 💖✨",
+        settingsBtn: "⚙️ Settings & Language"
+    }
+};
+
+let currentLang = localStorage.getItem('site_lang') || 'sw';
+
 document.getElementById('login-btn').addEventListener('click', function() {
     const username = document.getElementById('username').value.trim();
     const birthdate = document.getElementById('birthdate').value;
 
     if (!username || !birthdate) {
-        alert("Tafadhali jaza jina lako na tarehe ya kuzaliwa!");
+        alert(currentLang === 'sw' ? "Tafadhali jaza jina na tarehe ya kuzaliwa!" : "Please fill in your name and birthdate!");
         return;
     }
 
-    // Hifadhi kwenye kumbukumbu ya kivinjari (LocalStorage)
     localStorage.setItem('birthday_user', username);
     localStorage.setItem('birthday_date', birthdate);
-
-    // Badilisha ukurasa kuonyesha zawadi
     showDashboard(username, birthdate);
 });
 
@@ -19,35 +38,46 @@ function showDashboard(name, bdate) {
     document.getElementById('login-section').classList.add('hidden');
     document.getElementById('content-section').classList.remove('hidden');
 
-    // Badilisha jina kwenye ujumbe
-    const titleEle = document.getElementById('greeting-title');
-    titleEle.innerHTML = `🎉 Happy Birthday, ${name}! 🎉`;
-
-    // Angalia kama ni leo siku yake ya kuzaliwa
+    document.getElementById('greeting-title').innerHTML = `🎉 Happy Birthday, ${name}! 🎉`;
+    
+    // Angalia tarehe ya kuzaliwa
     const today = new Date();
     const userBday = new Date(bdate);
     
     if (today.getDate() === userBday.getDate() && today.getMonth() === userBday.getMonth()) {
-        document.getElementById('greeting-message').innerHTML = 
-            `"${name}, leo ndiyo siku yako maalum ya kuzaliwa! Mfumo umegundua kuwa umezaliwa tarehe ya leo. Nakutakia furaha isiyo na kiasi, mafanikio tele, na baraka tele katika umri wako mpya!" 💖✨`;
+        document.getElementById('greeting-message').innerHTML = `"${name}, ${translations[currentLang].bdayWish}"`;
     }
 }
 
-// Kukumbuka kama alishawahi kuingia
-window.onload = function() {
-    const savedName = localStorage.getItem('birthday_user');
-    const savedBdate = localStorage.getItem('birthday_date');
-    
-    if (savedName && savedBdate) {
-        // Unaweza kuruhusu kuendelea moja kwa moja au kumuacha ajaze tena
-    }
+// Settings Modal Control
+document.getElementById('settings-toggle-btn').addEventListener('click', function() {
+    document.getElementById('settings-modal').classList.remove('hidden');
+});
+
+document.getElementById('close-settings-btn').addEventListener('click', function() {
+    document.getElementById('settings-modal').classList.add('hidden');
+});
+
+// Kubadilisha Lugha
+document.getElementById('lang-select').addEventListener('change', function(e) {
+    currentLang = e.target.value;
+    localStorage.setItem('site_lang', currentLang);
+    updateLanguageTexts();
+});
+
+function updateLanguageTexts() {
+    document.getElementById('txt-welcome').innerText = translations[currentLang].welcome;
+    document.getElementById('txt-sub').innerText = translations[currentLang].sub;
+    document.getElementById('username').placeholder = translations[currentLang].namePlaceholder;
+    document.getElementById('login-btn').innerText = translations[currentLang].btnOpen;
+    document.getElementById('settings-toggle-btn').innerText = translations[currentLang].settingsBtn;
 }
 
-// Kitufe cha Tochi na Kamera (Mawasiliano madogo ya ziada)
+// Vitufe vya Chini
 document.getElementById('torch-btn').addEventListener('click', function() {
-    alert("Tochi imewashwa kwa ajili ya kuangaza sherehe yako! 🔦✨");
+    alert(currentLang === 'sw' ? "Tochi imewashwa! 🔦✨" : "Torch turned on! 🔦✨");
 });
 
 document.getElementById('camera-btn').addEventListener('click', function() {
-    alert("Kamera tayari kupiga picha za kumbukumbu za siku yako kuu! 📷🎉");
+    alert(currentLang === 'sw' ? "Kamera iko tayari kwa ajili ya picha! 📷🎉" : "Camera ready for pictures! 📷🎉");
 });
