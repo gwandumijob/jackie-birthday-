@@ -1,0 +1,95 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    color: #fff;
+    text-align: center;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 30px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    width: 320px;
+}
+
+input {
+    width: 90%;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    text-align: center;
+    font-size: 16px;
+}
+
+button {
+    background-color: #ff2e63;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #d61a48;
+}
+
+.error {
+    color: #ffe6e6;
+    font-size: 14px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.hidden {
+    display: none;
+}
+
+#surprise-container h1 {
+    font-size: 2.5rem;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    animation: bounce 1.5s infinite;
+}
+
+.wish-text {
+    font-size: 1.2rem;
+    max-width: 500px;
+    margin: 20px auto;
+    line-height: 1.6;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.flowers {
+    font-size: 2rem;
+    margin-top: 15px;
+    animation: pulse 1s infinite alternate;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.1); }
+}

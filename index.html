@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Jackie!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- LOGIN CONTAINER -->
+    <div id="login-container" class="card">
+        <h2>Ingia ili Uone Zawadi Yako 🎁</h2>
+        <p>Weka jina lako na mwaka wako wa kuzaliwa:</p>
+        <input type="text" id="username" placeholder="Weka Jina (Mfano: Jackie)">
+        <input type="password" id="birthyear" placeholder="Mwaka wa Kuzaliwa (Mfano: 2004)">
+        <button onclick="checkLogin()">Fungua Zawadi</button>
+        <p id="error-msg" class="error"></p>
+    </div>
+
+    <!-- SURPRISE CONTAINER (MWANZO IMEFICWA) -->
+    <div id="surprise-container" class="hidden">
+        <h1>🎉 Happy Birthday Jackie! 🎉</h1>
+        <p class="wish-text">
+            "Katika siku hii ya kipekee duniani, ninakuombea furaha isiyo na kiasi, mafanikio tele, na amani ya moyo wako. Wewe ni mtu wa pekee sana na mwenye thamani kubwa. Nakutakia maisha marefu yenye baraka tele. Enjoy siku yako kikamilifu!" 💖✨
+        </p>
+        <div class="flowers">🌸 🌺 🌷 🌻 🌹 🌸 🌺 🌷</div>
+        <div class="fireworks-msg">✨ Fataki zinawaka kwa ajili yako! ✨</div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
